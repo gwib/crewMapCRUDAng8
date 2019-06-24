@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CrewAddComponent } from './crew-add/crew-add.component';
 import { CrewGetComponent } from './crew-get/crew-get.component';
 import { CrewEditComponent } from './crew-edit/crew-edit.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CrewsService } from './crews.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SlimLoadingBarModule
+    HttpClientModule,
+    SlimLoadingBarModule,
+
   ],
-  providers: [],
+  providers: [ CrewsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
