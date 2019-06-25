@@ -11,5 +11,4 @@ conn.connect(function (err) {
   console.log("Connected!");
 });
 
-
-conn.end();
+module.exports = conn;

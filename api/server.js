@@ -5,6 +5,7 @@ const express = require('express'),
   mongoose = require('mongoose');
 
 var mysql = require('mysql');
+var db = require('./DB');
 
 const app = express();
 let port = process.env.PORT || 4000;
