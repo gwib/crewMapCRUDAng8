@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { CrewsService } from '../crews.service';
+import Crew from '../Crew';
+
 @Component({
   selector: 'app-crew-add',
   templateUrl: './crew-add.component.html',
@@ -9,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CrewAddComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private cs: CrewsService) {
     this.createForm();
   }
 
@@ -20,7 +23,11 @@ export class CrewAddComponent implements OnInit {
       CrewEmail: ['', Validators.required ]
     });
   }
-  ngOnInit() {
+
+  addCrew(CrewName, CrewMeeting, CrewEmail) {
+    this.cs.addCrew(CrewName, CrewMeeting, CrewEmail);
   }
 
+  ngOnInit() {
+  }
 }
