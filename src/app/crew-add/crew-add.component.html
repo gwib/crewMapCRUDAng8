@@ -1,20 +1,28 @@
 <div class="card">
   <div class="card-body">
-    <form>
+    <form [formGroup]="angForm" novalidate>
       <div class="form-group">
         <label class="col-md-4">Crew Name</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control"
+        formControlName="CrewName"
+        #CrewName/>
+      </div>
+      <div *ngIf="angForm.controls['CrewName'].invalid && (angForm.controls['CrewName'].dirty ||
+      angForm.controls['CrewName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['CrewName'].errors.required">
+          Die Crew braucht einen Namen.
+        </div>
       </div>
       <div class="form-group">
         <label class="col-md-4">Crew Meeting </label>
-        <textarea class="form-control" rows = 7 cols = "5"></textarea>
+        <textarea class="form-control" rows = "3" cols = "5" #CrewMeeting></textarea>
       </div>
       <div class="form-group">
         <label class="col-md-4">Crew E-Mail</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" #CrewEmail/>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create Crew</button>
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine">Crew erstellen</button>
       </div>
     </form>
   </div>
