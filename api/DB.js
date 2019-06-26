@@ -7,6 +7,7 @@ var conn = mysql.createConnection({
   database: 'crewrestapi'
 });
 
+
 conn.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
