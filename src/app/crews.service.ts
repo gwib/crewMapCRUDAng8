@@ -20,4 +20,9 @@ export class CrewsService {
     this.http.post(`${this.uri}/add`, obj)
       .subscribe(res => console.log('Done'));
   }
+
+  getCrews() {
+    return this.http.get(`${this.uri}`);
+  }
+
 }

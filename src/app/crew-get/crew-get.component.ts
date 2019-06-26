@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import Crew from '../Crew';
+import { CrewsService } from '../crews.service';
+
 
 @Component({
   selector: 'app-crew-get',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrewGetComponent implements OnInit {
 
-  constructor() { }
+  crews: Crew[];
+  constructor(private cs: CrewsService) { }
 
   ngOnInit() {
+    this.cs.
+      getCrews()
+      .subscribe((data: Crew[]) => {
+      this.crews = data;
+    });
   }
 
 }
