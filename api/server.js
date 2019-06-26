@@ -8,6 +8,8 @@ var mysql = require('mysql');
 var db = require('./DB');
 
 const app = express();
+app.use(bodyParser.json());
+app.use(cors());
 let port = process.env.PORT || 4000;
 
 const server = app.listen(function(){
