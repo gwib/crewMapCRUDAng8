@@ -1,3 +1,20 @@
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize('crewrestapi', 'crewAdmin', 'crew',
+  {host: 'localhost',
+  dialect: 'mysql'
+  });
+
+sequelize
+  .authenticate()
+  .then(()=> {
+    console.log('Connection has been established')
+  })
+  .catch(err => {
+    console.error('Unable to connect to database:', err);
+  });
+
+/*
 var mysql = require('mysql');
 
 var conn = mysql.createConnection({
@@ -14,3 +31,4 @@ conn.connect(function (err) {
 });
 
 module.exports = conn;
+*/
